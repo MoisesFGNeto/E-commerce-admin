@@ -43,6 +43,6 @@ Please utilize the following Google credentials to access the admin privileges a
 Feel free to navigate around and explore the various features and capabilities. Should you have any questions or encounter any issues, don't hesitate to reach out. Your engagement is greatly appreciated!
 
 **Demo on this**
-  [Link](https://my-ecommerce-adm-2023.vercel.app/)
+  [Link](https://my-admin-ecommerce-2023.vercel.app/)
 
 
