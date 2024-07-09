@@ -1,6 +1,4 @@
-import { useSession, signIn} from "next-auth/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { useSession} from "next-auth/react";
 import Nav from "@/components/Nav";
 import { useState } from "react";
 import Link from "next/link";
@@ -10,29 +8,9 @@ export default function Layout({children}) {
   const [showNav, setShowNav] = useState(false);
   const { data: session } = useSession(); 
   
-  async function login() {
-    await signIn('google');
-  }
   if (!session) {
     return (
       <LoginForm/>
-      // <div className='bg-gray-800 w-screen h-screen flex items-center'>
-      //   <div className=" login-form">
-      //     <h1 className="text-3xl font-bold mb-4">My-Ecommerce Login</h1>
-      //     <div>
-      //     <p className="text-bold">As admin please login with this google credential: </p>
-      //     <div className="border mt-6 p-4">
-      //       <p className="text-sm ">Email: myecommerceadm2023@gmail.com</p>
-      //       <p className="text-sm ">Password: ecommerce_test</p>
-      //     </div>
-      //     </div>
-      //     <button 
-      //       onClick={login}  
-      //       className="p-2 px-4 mt-5 rounded-lg bg-primary border-0 text-white" >
-      //        Login With <FontAwesomeIcon icon={faGoogle} className="google-icon" />oogle
-      //     </button>
-      //   </div>
-      // </div>
     );
   }
   return (

@@ -11,6 +11,7 @@ module.exports = {
         primary: '#5542f6',
         highlight: '#eae8fb',
         bgGray: '#fbfafd',
+        bpurple: 'rgb(119 71 255 / var(--tw-text-opacity))'
       },
     },
   },

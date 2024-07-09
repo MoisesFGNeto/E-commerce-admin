@@ -4,11 +4,21 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { withSwal } from 'react-sweetalert2';
 import { prettyDate } from '@/lib/date';
+import { signOut } from 'next-auth/react';
+import { useRouter, userRouter } from "next/router";
 
 function AdminsPage({swal}){
   const [email, setEmail] = useState('');
   const [adminEmails, setAdminEmails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
+  const mainAdmin = "myecommerceadm2023@gmail.com";
+
+  async  function logout() {
+    await router.push('/');
+    await signOut();
+  }
 
   function addAdmin(ev){
     ev.preventDefault();
@@ -44,7 +54,12 @@ function AdminsPage({swal}){
             title: 'Admin deleted',
             icon: 'success',
           });
-          loadAdmins();
+          if (adminEmails.email === mainAdmin){
+            loadAdmins()
+          } else {
+            logout();
+          }
+          
         });
       }
     });
@@ -71,7 +86,7 @@ function AdminsPage({swal}){
             className='mb-0' 
             value={email}
             onChange={ev => setEmail(ev.target.value)}
-            placeholder='Google email'/>
+            placeholder='Only Google email'/>
           <button 
             type='submit'
             className='btn-primary py-1 whitespace-nowrap'>
@@ -103,11 +118,13 @@ function AdminsPage({swal}){
               <td>{adminEmail.email}</td>
               <td>{adminEmail.createdAt && prettyDate(adminEmail.createdAt)}</td>
               <td>
-                <button 
-                  className='btn-red'
-                  onClick={() => deleteAdmin(adminEmail._id, adminEmail.email)}>
-                  Delete
-                </button>
+                {adminEmail.email !== mainAdmin && (
+                   <button 
+                   className='btn-red'
+                   onClick={() => deleteAdmin(adminEmail._id, adminEmail.email)}>
+                   Delete
+                 </button>
+                )}
               </td>
             </tr>
           ))}
