@@ -33,12 +33,6 @@ To explore the current features of the E-commerce Admin Panel, follow these step
 2. Install dependencies using `npm install` or `yarn install`.
 3. Make sure to set the necessary environment variables. Configure AWS S3 and Google Cloud credentials, as well as MongoDB connection settings, in the appropriate configuration files. 
 4. Run the application locally using `npm run dev` or `yarn dev` on port:localhost:3000.
-
-## Demo /  Account for Admin Access:
-Please utilize the following Google credentials to access the admin privileges and explore the functionalities:
-
-- Username: myecommerceadm2023@gmail.com
-- Password: ecommerce_test
   
 Feel free to navigate around and explore the various features and capabilities. Should you have any questions or encounter any issues, don't hesitate to reach out. Your engagement is greatly appreciated!
 
